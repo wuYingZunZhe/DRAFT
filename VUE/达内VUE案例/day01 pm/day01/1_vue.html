@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <!--1. 定义HTML和CSS
+      只不过需要将可能变化的位置用特殊语法标识-->
+  <header id="header"><!--真实DOM树-->
+    <h1>
+      <img :src="logo" alt="">
+      Welcome <span>{{uname.toUpperCase()}}</span>; 您的积分是 <span>{{score}}</span>
+    </h1>
+    <h3>
+      城市: {{address.city}}<br>
+      小计: ¥{{(price*count)}}<br>
+      <a :href="url">查看详情</a>
+    </h3>
+  </header>
+  <script>/*遍历header，生成虚拟DOM树
+      el:{
+        h1>img>span:first .innerHTML : {{uname}},
+        h1>img>span:last  .innerHTML : {{score}}
+      }  
+  */</script>
+  <script>//3. 创建ViewModel，绑定模型数据和View视图
+    var vm=new Vue({
+      el:"#header",//element: 找到并监视header
+      //2. 页面有几处变化，内存就要有几个变量与之对应
+      data:{ //将页面需要的所有数据交给vue托管
+        uname:"dingding",  score:3000,
+        logo:"img/1.png",
+        address:{ city:"北京", street:"万寿路" },
+        price:12.5, count:5,
+        url:"product_details.html?lid=5"
+      }
+    })
+    //vm.uname{ get(){}  set(value){}}
+    //vm.score{ get(){}  set(value){ 修改data.score，而且“通知”vue框架该更新页面了！}}
+    //在控制台反复执行vm.score+=500,看页面变化
+  </script>
+</body>
+</html>

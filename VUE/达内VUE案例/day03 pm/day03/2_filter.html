@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <style> [v-cloak]{display:none} </style>
+</head>
+<body>
+  <script>
+    Vue.filter("genderConvert",function(val,lang="zh-cn"){
+      if(lang=="zh-cn")
+        return val==1?"男":"女"
+      else
+        return val==1?"Male":"Female"
+    })
+    Vue.filter("genderIcon",function(val){
+      return val+ (val=="男"||val=="Male"?"♂":"♀")
+    })
+  </script>
+  <div id="app" v-cloak>
+    性别:<span>{{gender|genderConvert(en-us)|genderIcon}}</span>
+  </div>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{ gender:1 }
+    })
+  </script>
+</body>
+</html>

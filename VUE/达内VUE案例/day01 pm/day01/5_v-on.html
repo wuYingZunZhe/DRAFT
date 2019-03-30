@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <span>第{{pno}}页 / 共{{pageCount}}页</span><br>
+    <a href="#" v-show="pno<pageCount" @click.prevent.stop="add_pno()" @keyup.40="add_pno_key()">点击加载更多</a><br>
+    <p v-show="pno==pageCount">没有更多了!</p>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{ pno:1, pageCount:5 },
+      methods:{
+        add_pno(/*e*/){
+          //e.preventDefault();
+          this.pno++; 
+        },
+        add_pno_key(/*e*/){
+          //if(e.keyCode===40)
+          this.add_pno(/*e*/)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div>¥{{total.toFixed(2)}}</div>
+    <br><br><br><br><br><br><br>
+    <div>¥{{total.toFixed(2)}}</div>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        cartItems:[
+          {lid:1,price:12.5,count:3},
+          {lid:2,price:10,count:5},
+          {lid:3,price:8,count:2}
+        ]
+      },
+      methods:{
+        /*total(){
+          console.log("计算了一次总价");
+          var sum=0;
+          for(var item of this.cartItems){
+            sum+=item.price*item.count;
+          }
+          return sum;
+        }*/
+      },
+      computed:{
+        total(){
+          console.log("计算了一次总价");
+          var sum=0;
+          for(var item of this.cartItems){
+            sum+=item.price*item.count;
+          }
+          return sum;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

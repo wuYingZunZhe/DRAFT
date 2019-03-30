@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <ul><!--3. 在视图中，用组件名当做元素名反复使用-->
+      <li><xz-counter></xz-counter></li>
+      <li><xz-counter></xz-counter></li>
+      <li><xz-counter></xz-counter></li>
+      <li><xz-counter></xz-counter></li>
+    </ul>
+  </div>
+  <!--1. 定义组件<template>元素，包含组件的HTML片段-->
+  <template id="tplXzCounter"><!--组件的独立视图-->
+    <div>
+      <button @click="change(-1)">-</button><span v-text="n"></span><button @click="change(+1)">+</button>
+    </div>
+  </template>
+  <script>
+    //2. 定义组件，找到template: 
+    Vue.component("xz-counter",{
+      template:"#tplXzCounter",
+      data:function(){
+        return { n:1 }
+      },
+      methods:{
+        change(i){ this.n+=i; }
+      }
+    })
+    //必须new Vue才能识别
+    new Vue({
+      el:"#app"
+    })
+  </script>
+</body>
+</html>

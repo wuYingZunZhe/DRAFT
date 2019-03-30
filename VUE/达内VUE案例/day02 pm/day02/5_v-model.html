@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    性别: <label><input type="radio" name="gender" value="1" v-model="gender">男</label>
+    <label><input type="radio" name="gender" value="0" v-model="gender">女</label><br>
+    <label><input type="checkbox" v-model="isAgree">同意</label><br>
+    <select v-model="orderStatus">
+      <option value="10">未付款</option>
+      <option value="20">已付款</option>
+      <option value="30">已发货</option>
+      <option value="40">已签收</option>
+    </select>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        gender:1,
+        isAgree:false,
+        orderStatus:20,//20,30,40
+      },
+      watch:{
+        orderStatus(){
+          alert(`您的订单 ${
+            this.orderStatus==10?"未付款":
+            this.orderStatus==20?"已付款":
+            this.orderStatus==30?"已发货":
+                                 "已签收"
+          }`);
+        }
+      }
+    })
+  </script>
+</body>
+</html>

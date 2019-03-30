@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+</head>
+<body>
+  <div id="app">
+    <xz-header></xz-header>
+    <router-view></router-view>
+  </div>
+  <template id="tplHeader">
+    <div>
+      <h1>这里是页头</h1>
+      <h3 style="text-align:right; padding-right:50px"><a href="#" @click.prev="signin()">登录</a></h3>
+      <ul>
+        <li><router-link to="/index">首页</router-link></li>
+        <li><router-link to="/about">关于</router-link></li>
+      </ul>
+      <hr>
+    </div>
+  </template>
+  <template id="tplHome">
+    <div>
+      <h2>欢迎访问 首页</h2>
+      <ul>
+        <li><router-link to="/index/tmgj">天猫国际</router-link></li>
+        <li><router-link to="/index/fzh">飞猪旅游</router-link></li>
+        <li><router-link to="/index/tmcs">天猫超市</router-link></li>
+      </ul>
+      <hr>
+      <router-view></router-view>
+    </div>
+  </template>
+  <template id="tplAbout">
+    <h2 style="background:lightBlue">关于我们...</h2>
+  </template>
+  <template id="tplLogin">
+    <div>
+      <h2 style="background:pink">请先登录...</h2>
+      <h3>来自于{{back}}</h3>
+      <router-link :to="`/${back}`">返回上一页</router-link>
+    </div>
+  </template>
+  <template id="tplTmgj">
+  <div><h3 style="color:red">这里是 天猫国际</h3></div>
+  </template>
+  <template id="tplFzh">
+    <div>
+      <h3 style="color:green">这里是 飞猪旅游</h3>
+    </div>
+  </template>
+  <template id="tplTmcs">
+    <div>
+      <h3 style="color:orange">这里是 天猫超市</h3>
+    </div>
+  </template>
+  <script>
+    Vue.component("xz-header",{
+      template:"#tplHeader",
+      methods:{
+        signin(){  
+          var path=this.$route.path;
+          if(path=="/")
+            path="/index"
+          this.$router.push("/login"+path)
+        }
+      }
+    })
+    var xzHome={ template:"#tplHome" }
+    var xzAbout={ template:"#tplAbout" }
+    var xzLogin={ 
+      template:"#tplLogin" ,
+      props:["back"]
+    }
+    var xzNotFound={
+      template:"<h2 style='color:red'>404: Not Found</h2>"
+    }
+    var xzTmgj={ template:"#tplTmgj"};
+    var xzFzh={ template:"#tplFzh"};
+    var xzTmcs={ template:"#tplTmcs"};
+    var routes=[//路由字典
+      {path:"/",component:xzHome},
+      {path:"/index",component:xzHome,children:[
+        {path:"/index/tmgj",component:xzTmgj},
+        {path:"/index/fzh",component:xzFzh},
+        {path:"/index/tmcs",component:xzTmcs},
+      ]},
+      {path:"/about",component:xzAbout},
+      {path:"/login/:back",component:xzLogin,props:true},
+      {path:"/*",component:xzNotFound}
+    ];
+    var router=new VueRouter({ routes }) //路由器
+    new Vue({ el:"#app", router })
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <script src="js/axios.min.js"></script>
+  <script src="js/qs.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{ res:{} },
+      mounted(){
+        (async ()=>{
+          var res=await axios.get("http://localhost:3000/products",{
+            params:{
+              kwords:"i5",
+              pno:0
+            }
+          })//.then((res)=>{ ... })
+          this.res=res.data;
+        })()
+        axios.post("http://localhost:3000/users/signin",Qs.stringify({
+          uname:"dingding",
+          upwd:"123456"
+        })).then(res=>{
+          console.log(res);
+        })
+      }
+    })
+  </script>
+</body>
+</html>

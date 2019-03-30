@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <xz-todo></xz-todo>
+    <!-- <xz-todo-item></xz-todo-item> -->
+  </div>
+  <template id="tplTodo"><!--data: tasks[...]-->
+    <div>
+      <xz-todo-add @ling="add"></xz-todo-add>
+              <!--当事件处理函数没有参数时可省略()-->
+      <xz-todo-list :tasks="tasks"></xz-todo-list>
+    </div>
+  </template>
+  <template id="tplTodoAdd">
+    <div><input type="text" v-model="task"><button @click="add()">添加</button></div>
+  </template>
+  <template id="tplTodoList">
+    <div>
+      <ul>
+        <li v-for="(task,i) in tasks">
+          <xz-todo-item :i="i" :task="task" @ling="remove"></xz-todo-item></li>
+      </ul>
+    </div>
+  </template>
+  <template id="tplTodoItem">
+    <div>
+      <span>{{i+1}}</span> - <span>{{task}}</span> <button @click="del(i)">x</button>
+    </div>
+  </template>
+  <script>
+    var xzTodoItem={
+      template:"#tplTodoItem",
+      props:["i","task"],
+      methods:{
+        del(i){
+          if(confirm("是否继续删除第"+(i+1)+"项"))
+            this.$emit("ling",i)
+        }
+      }
+    }
+    var xzTodoList={
+      template:"#tplTodoList",
+      props:["tasks"],//data:{ tasks }
+      methods:{
+        remove(i){
+          this.tasks.splice(i,1);
+        }
+      },
+      components:{
+        //"xz-todo-item":xzTodoItem
+        //xzTodoItem:xzTodoItem
+        //驼峰 -> 横线分割！
+        xzTodoItem
+      }
+    }
+    var xzTodoAdd={
+      template:"#tplTodoAdd",
+      data:function(){ return { task:""} },
+      methods:{
+        add(){ 
+          if(this.task.trim()!=="")
+            this.$emit("ling",this.task) 
+        }
+      }
+    }
+    Vue.component("xz-todo",{
+      template:"#tplTodo",
+      data:function(){ return { 
+        tasks:["吃饭","睡觉","打亮亮"] 
+      } },
+      methods:{
+        add(task){
+          this.tasks.push(task);
+        }
+      },
+      components:{ xzTodoAdd, xzTodoList }
+    })
+    new Vue({ el:"#app" })
+    
+  </script>
+</body>
+</html>

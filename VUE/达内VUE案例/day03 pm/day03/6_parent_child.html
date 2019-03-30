@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <xz-todo></xz-todo>
+    <!-- <xz-todo-item></xz-todo-item> -->
+  </div>
+  <template id="tplTodo">
+    <div>
+      <xz-todo-add></xz-todo-add>
+      <xz-todo-list></xz-todo-list>
+    </div>
+  </template>
+  <template id="tplTodoAdd">
+    <div><input type="text"><button>添加</button></div>
+  </template>
+  <template id="tplTodoList">
+    <div>
+      <ul>
+        <li><xz-todo-item></xz-todo-item></li><!--x3-->
+        <li><xz-todo-item></xz-todo-item></li>
+        <li><xz-todo-item></xz-todo-item></li>
+      </ul>
+    </div>
+  </template>
+  <template id="tplTodoItem">
+    <div>
+      <span>1</span> - <span>吃饭</span> <button>x</button>
+    </div>
+  </template>
+  <script>
+    var xzTodoItem={
+      template:"#tplTodoItem"
+    }
+    var xzTodoList={
+      template:"#tplTodoList",
+      components:{
+        //"xz-todo-item":xzTodoItem
+        //xzTodoItem:xzTodoItem
+        //驼峰 -> 横线分割！
+        xzTodoItem
+      }
+    }
+    var xzTodoAdd={
+      template:"#tplTodoAdd"
+    }
+    Vue.component("xz-todo",{
+      template:"#tplTodo",
+      components:{ xzTodoAdd, xzTodoList }
+    })
+    new Vue({ el:"#app" })
+    
+  </script>
+</body>
+</html>

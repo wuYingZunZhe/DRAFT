@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+<style>
+p{width:500px; height:30px;border:1px solid red;}
+</style>
+</head>
+<body>
+  <div id="app">
+    <p v-html="msg"></p>
+    <p v-text="msg"></p>
+    <p>{{msg}}</p>
+    <hr>
+    <p v-html="`¥${price.toFixed(2)}`"></p>
+    <p v-text="`¥${price.toFixed(2)}`"></p>
+    <p>¥{{price.toFixed(2)}}</p>
+  </div>
+  <script>
+    setTimeout(function(){//success(){}
+      new Vue({
+        el:"#app",
+        data:{
+          msg:"来自&lt;&lt;<a href='#'>新华社<a>&gt;&gt;的消息",
+          price:345.5
+        }
+      })
+    },10000)
+  </script>
+</body>
+</html>

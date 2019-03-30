@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="kword" @keyup.13="search()"><button @click="search()">百度一下</button>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        kword:""
+      },
+      methods:{
+        search(){
+          console.log("查询包含关键词: "+this.kword+" 的网页");
+        }
+      },
+      watch:{
+        kword(){ //只要kword发生变化就立刻执行
+          this.search();
+        }
+      }
+    })
+  </script>
+</body>
+</html>

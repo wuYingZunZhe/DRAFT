@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button v-if="hasMore">点击加载更多</button>
+    <hr>
+    <img v-if="pm25<100" src="img/1.png" alt="">
+    <img v-else-if="pm25<200" src="img/2.png" alt="">
+    <img v-else-if="pm25<300" src="img/3.png" alt="">
+    <img v-else src="img/4.png" alt="">
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        hasMore:true,
+        pm25:50
+      }
+    })
+    //在控制台中vm.pm25+=70
+  </script>
+</body>
+</html>

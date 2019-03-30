@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{ margin:0; padding:0 }
+    #mImg{
+      width:300px; height:300px; position:relative;
+      border:1px solid #aaa;
+    }
+    #mask{
+      width:150px; height:150px; position:absolute;
+      background:red;
+    }
+    .hide{ display:none; }
+    #superMask{
+      width:300px; height:300px; 
+      position:absolute; top:0; left:0;
+    }
+  </style>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div id="mImg">
+      <div id="mask" 
+      :style="maskStyleObj" :class="mask_hide"></div>
+    </div>
+    <div id="superMask" @mouseover="display(true)" @mouseout="display(false)" @mousemove="move($event)"></div>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        mask_hide:{ "hide":true }, 
+        maskStyleObj:{ top:0, left:0 }
+      },
+      methods:{
+        move(e){
+          this.maskStyleObj.top=e.offsetY-75+"px";
+          this.maskStyleObj.left=e.offsetX-75+"px";
+        },
+        display(bool){ this.mask_hide.hide=!bool; }
+      }
+    })
+  </script>
+</body>
+</html>

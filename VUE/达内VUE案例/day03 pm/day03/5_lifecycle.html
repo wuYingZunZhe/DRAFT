@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    用户名:<span v-text="uname"></span>
+  </div>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        uname:"dingding"
+      },
+      beforeCreate() {
+        console.log(this.$el,this._data);
+        alert("创建Vue实例前")
+      },
+      created() {
+        console.log(this.$el,this._data);
+        alert("Vue实例创建后");
+      },
+      beforeMount() {
+        console.log(this.$el)
+        console.log(this._data);
+        alert("挂载前");
+      },
+      mounted() {
+        console.log(this.$el)
+        console.log(this._data);
+        alert("挂载后");
+      }
+    })
+  </script>
+</body>
+</html>
