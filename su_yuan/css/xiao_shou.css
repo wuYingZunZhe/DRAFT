@@ -1,0 +1,406 @@
+ /*全局样式*/
+  body{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+    /*overflow:hidden;*/
+    background:#eee;
+    }
+  /*头部背景图样式*/
+	.title1{
+		width:100%;
+		height:360px;
+		background:rgba(255,255,255,1);
+		z-index:0;
+		background-repeat:no-repeat ;
+		background-size:100% 100%;
+		position: relative;
+    /*处理子元素上边距溢出*/
+    overflow:hidden;
+	}
+   /*头部标题样式*/
+  /*头部内容样式*/
+	.title2{
+		width:94.66%;
+		height:360px;
+		margin-top:-85px;
+		margin-left:2.66%;
+		margin-bottom:20px;
+		background:rgba(255,255,255,1);
+		box-shadow:3px 3px 29px 0px rgba(68,68,68,0.21);
+		border-radius:8px;
+		/*background:blue;*/
+		position: relative;
+    /*处理子元素上边距溢出
+    overflow:hidden;*/
+	}
+  /*头部内容子元素*/
+    /*头部内容标题*/
+    .title2_title{
+      height:27px;
+      font-size:28px;
+      font-family:PingFang-SC-Medium;
+      font-weight:500;
+      color:rgba(40,40,40,1);
+      position:absolute;
+      margin-top:34px;
+      margin-left:40%;
+    }
+	
+    /*头部内容子元素内容*/
+      /*代码优化*/
+        /*子元素左边样式*/
+        .title2_1_1{
+          height:20px;
+          font-size:20px;
+          font-family:PingFang-SC-Regular;
+          font-weight:400;
+          color:rgba(137,137,137,1);
+        }
+        /*子元素右边样式*/
+        .title2_1_2{
+          height:22px;
+          font-size:22px;
+          font-family:PingFang-SC-Medium;
+          font-weight:500;
+          color:rgba(40,40,40,1);
+        }
+          /*子元素定位*/
+          .title2>span{
+            position:absolute;
+          }
+         /**左侧定位*/
+        /*第一条子元素容器定位*/
+       .title2_1{
+          margin-top:90px;
+          margin-left:2.93%;
+        }
+        
+        /*第二条子元素容器定位*/
+       .title2_2{
+          margin-top:126px;
+          margin-left:2.93%;
+        }
+        
+        /*第三条子元素容器定位*/
+       .title2_3{
+          margin-top:163px;
+          margin-left:2.93%;
+        }
+        
+        /*第四条子元素容器定位*/
+       .title2_4{
+          margin-top:199px;
+          margin-left:2.93%;
+        }
+        
+        /*第五条子元素容器定位*/
+       .title2_5{
+          margin-top:236px;
+          margin-left:2.93%;
+        }
+        
+        /*第六条子元素容器定位*/
+       .title2_6{
+          margin-top:273px;
+          margin-left:2.93%;
+        }
+         /**右侧定位*/
+        /*第七条子元素容器定位*/
+       .title2_7{
+          margin-top:90px;
+          margin-left:40%;
+        }
+        /*第八条子元素容器定位*/
+       .title2_8{
+          margin-top:126px;
+          margin-left:40%;
+        }
+        /*第九条子元素容器定位*/
+       .title2_9{
+          margin-top:163px;
+          margin-left:40%;
+        }  
+  /*分页按钮样式*/
+	.My_nav_all{
+		width:100%;
+		height:88px;
+		margin-top:37px;
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+    text-align: center;
+	}
+  /*每个按钮样式*/
+	.My_nav{
+		width:24.69%;
+		height:88px;
+		background-color:#45D9A0;
+		color:#B6F0DA;
+		font-size:28px;
+    line-height:88px;
+		position: relative;
+    border-radius: 0;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    /*text-overflow:none;*/
+	}
+  
+  /*按钮激活样式*/
+  .My_activate{  
+    color:#fff;
+    border-bottom:2px solid #fff;
+  }
+  /*分页（加工）样式****************************/
+  .My_title{ 
+    height:52px;
+    /*line-height:52px;*/
+    font-size:24px;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    color:rgba(40,40,40,1);
+    display:table-cell; /*按照单元格的样式显示元素*/
+    vertical-align:bottom; /*底对齐*/
+    padding-left:20px;
+  }
+  
+/*表单模块开始位置*/
+   /*表单全局样式*/
+	.My_Tab{
+		width:100%;
+		height:270px;
+		background:rgba(255,255,255,1);
+		position: relative;
+    /*处理子元素上边距溢出*/
+    overflow:hidden;
+	}
+    /*表单标题样式*/
+  .My_Tab_nav{
+    width:100%;
+    height:40px;
+    position:absolute;
+    margin-top:19px;
+    margin-left:21px;
+  }  
+    /*表单nav通用样式*/
+   .My_tab_nav_all{
+    width:21.33%;
+    height:40px;
+    background:rgba(232,232,232,1);
+    font-size:24px;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;  
+    text-align: center;
+    line-height:40px;
+    float:left;
+    margin-right:5px;
+    /*内容超出不换行*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+   } 
+    /*表单nav激活样式*/
+  .My_tab_nav_activate{
+    color:rgba(255,255,255,1);
+    background:rgba(69,217,160,1);  
+  }
+   /*表单表格样式*/
+   .tab_content{
+    width:94.93%;
+    height:124px;
+    border-top:1px solid rgba(224,224,224,1);
+    border-left:1px solid rgba(224,224,224,1);
+    border-radius:6px;
+    position:absolute;
+    margin-top:80px;
+    margin-left:2.66%;
+   }
+   /*表格内容样式*/
+  .tr{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+  }
+  .td1,.td2,.td3{
+    border-bottom:1px solid #dadada;
+    border-right:1px solid #dadada;
+    height:62px;
+    line-height: 62px;
+    /*内容超出不换行*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .td1{
+    width:22%;
+    text-align: center;
+    font-size:24px;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    color:rgba(152,152,152,1);
+  }
+  .td2,.td3{
+    border-bottom:1px solid #dadada;
+    border-right:1px solid #dadada;
+    font-size:24px;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    color:rgba(40,40,40,1);
+    padding-left:54px;
+  }
+  .td2{
+    width:28%;
+  }
+  .td3{
+    width:88%;
+  }
+   /*表单日期*/
+    .tab_time{
+    font-size:24px;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    color:rgba(152,152,152,1);
+    float:right;
+    margin-top:24px;
+    }
+/*表单模块结束位置*/    
+  
+/*运输模块*/
+  .My_yun_shu_title{
+    width:100%;
+    height:88px;
+    background:rgba(255,255,255,1);
+  }
+  .title_1{ 
+    height:88px;
+    font-size:20px;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    color:rgba(152,152,152,1);
+    padding-left:20px;
+    line-height:88px;  
+    float:left;
+  }
+  .title_2{   
+    height:88px;
+    font-size:24px;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    color:rgba(40,40,40,1);  
+    padding-left:20px;
+    line-height:88px;
+    float:left;
+  }
+  .My_yun_shu{
+    position: relative;
+  }
+  .yun_shu_1{
+    
+    height:90px;
+    background:rgba(255,255,255,1);
+    border-radius:8px;
+    
+    padding-bottom:60px;
+  }
+  /*详细物流信息*/
+  .yun_shu_1_1{
+    height:13px;
+    font-size:20px;
+    font-family:Courier;
+    font-weight:400;
+    color:rgba(104,104,104,1);
+    position:absolute;
+    margin-top:22px;
+    margin-left:3.2%;
+  }
+  .yun_shu_1_2{
+    height:13px;
+    font-size:20px;
+    font-family:Courier;
+    font-weight:400;
+    color:rgba(104,104,104,1);
+    position:absolute;
+    margin-top:50px;
+    margin-left:3.2%;
+  }
+  .yun_shu_1_3{
+    width:18px;
+    height:18px;
+    background:rgba(69,217,160,1);
+    border-radius:50%;
+    position:absolute;
+    margin-top:34px;
+    margin-left:30.93%;
+  }
+  .yun_shu_1_4{
+    height:13px; 
+    font-size:24px;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    color:rgba(40,40,40,1);
+    position:absolute;
+    margin-top:32px;
+    margin-left:26%;
+  }
+  .yun_shu_1_5{
+    height:13px;
+    font-size:20px;
+    font-family:Courier;
+    font-weight:400;
+    color:rgba(104,104,104,1);
+    position:absolute;
+    margin-top:24px;
+    margin-left:41.2%;
+  }
+  .yun_shu_1_6{
+    height:13px;
+    font-size:20px;
+    font-family:Courier;
+    font-weight:400;
+    color:rgba(104,104,104,1);
+    position:absolute;
+    margin-top:55px;
+    margin-left:41.2%;
+  }
+  .yun_shu_1_7{
+    height:13px;
+    font-size:20px;
+    font-family:Courier;
+    font-weight:400;
+    color:rgba(104,104,104,1);
+    position:absolute;
+    margin-top:85px;
+    margin-left:41.2%;
+  }
+  /*背景色*/
+  .yun_shu_1_8{ 
+    position:absolute;
+    margin-top:9px;
+    margin-left:36.93%;
+    width:53.33%;
+    height:129px;
+    background:rgba(249,249,249,1);
+    border-radius:8px;
+  }
+  /*上下进度条*/
+  .yun_shu_1_0{
+    width:0.53%;
+    height:143px;
+    background:rgba(69,217,160,1);
+    position:absolute;
+    margin-top:50px;
+    margin-left:21.87%;
+  }
+  .yun_shu_1_5_1{
+
+  }
+  .yun_shu_1_5_2{
+    font-size:24px;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    color:rgba(40,40,40,1); 
+  }
+
+
+
+  
